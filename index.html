@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>totally easy quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loader" class="loader">
+        <img id="img" class="img" src="loading.gif" height="200" style="display:block; margin-right:auto; margin-left:auto;">
+    </div>
+    <center id="start_2">
+          <h1>
+    totally easy quiz
+    </h1>
+    <br>
+    <br>
+    <br>
+    <button id="start" class="start">
+    Start
+    </button>
+    </center>
+    <center id="loadingQuiz" style="display:none;">
+      <img id="img2" class="img2" src="loading.gif" height="200" style="display:block; margin-right:auto; margin-left:auto;">
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1>
+      Loading Quiz...
+      </h1>
+    </center>
+    <div id="quiz" style="display:none;">
+    <center id="q1">
+    <h2>
+    Question 1
+    </h2>
+      <h1>
+      What is Mayo divided by the mass of the sun, on march 34nd on chrismas eve, what is water cup percentage of the freezer?
+      </h1>
+      <br>
+      <br>
+      <br>
+      <button id="qa1" class="answer">
+      45.82y
+      </button>
+      <button id="qa2" class="answer">
+      idk
+      </button>
+      <button id="qa3" class="answer">
+      Green
+      </button>
+      <button id="qa4" class="answer" style="top:-10px;">
+      honda civic
+      </button>
+    </center>
+    <center id="q2" style="display:none;">
+      <h2>
+      Question 2
+      </h2>
+      <h1>
+      If you fly to the sun, and bring a tree, then explode the sun, what is inside the freezer?
+      </h1>
+      <br>
+      <br>
+      <br>
+      <button id="qqa1" class="answer">
+      water
+      </button>
+      <button id="qqa2" class="answer" style="top:-10px;">
+      letter green
+      </button>
+      <button id="qqa3" class="answer" style="top:-10px;">
+      color seven
+      </button>
+    </center>
+    <center id="q3" style="display:none;">
+      <h2>
+      Question 3
+      </h2>
+      <h1>
+      what color are the buttons?
+      </h1>
+      <br>
+      <br>
+      <br>
+      <button id="qqqa1" class="answer">
+      white
+      </button>
+      <button id="qqqa2" class="answer">
+      yellow
+      </button>
+      <button id="qqqa3" class="answer">
+      orange
+      </button>
+    </center>
+    <center id="q4" style="display:none;">
+      <h2>
+      Question 4
+      </h2>
+      <h1>
+      *insert question here*
+      </h1>
+      <br>
+      <br>
+      <br>
+      <button id="qqqqa1" class="answer">
+      answer
+      </button>
+      <button id="qqqqa2" class="answer">
+      answer
+      </button>
+      <button id="qqqqa3" class="answer">
+      answer
+      </button>
+    </center>
+    </div>
+        <center id="complete" style="display:none;">
+        <h1>
+        Quiz Complete!
+        </h1>
+    </center>
+    <center id="gettingResults" style="display:none;">
+      <img id="img3" class="img3" src="loading.gif" height="200" style="display:block; margin-right:auto; margin-left:auto;">
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1>
+      Getting Results...
+      </h1>
+    </center>
+    <center id="results" style="display:none;">
+      <div class="resultt">
+      <h1>
+      Results:
+      </h1>
+      <h1 id="q1rr">
+      Question 1:
+      </h1>
+      <h1 id="q2rr">
+      Question 2:
+      </h1>
+      <h1 id="q3rr">
+      Question 3:
+      </h1>
+      <h1 id="q4rr">
+      Question 4:
+      </h1>
+      <br>
+      <h1 id="percent">
+      percent here
+      </h1>
+      </div>
+      <br>
+      <button id="again" class="answer" onclick="reload()">
+      go again?
+      </button>
+    </center>
+    <script>
+        var loader = document.getElementById("loader");
+        var start = document.getElementById("start");
+        var loaded = false;
+        var loaded2 = false;
+        var start_2 = document.getElementById("start_2");
+        var loadingquiz = document.getElementById("loadingQuiz");
+        var quiz = document.getElementById("quiz");
+        var maxq = 4;
+        var q1 = document.getElementById("q1");
+        var q2 = document.getElementById("q2");
+        var q3 = document.getElementById("q3");
+        var q4 = document.getElementById("q4");
+        var q1r = false;
+        var q2r = false;
+        var q3r = false
+        var q4r = false;
+        var correct = 0;
+        var complete = false;
+        var qa = 0;
+        var score = 0;
+        
+        function reload(){
+        window.location.reload();
+        }
+        
+        function check(){
+         if(qa === maxq){
+                  var completee = document.getElementById("complete");
+                  var getting = document.getElementById("gettingResults");
+         setTimeout(function(){
+                      var completee = document.getElementById("complete");
+             completee.style.display = "block";
+         },200);
+         setTimeout(function(){
+         completee.style.display = "none";
+         getting.style.display = "block";
+         },2000);
+         setTimeout(function(){
+         var result = (correct / maxq) * 100;
+         score = result + "%";
+                  setTimeout(function(){
+         getting.style.display = "none";
+         var results = document.getElementById("results");
+         results.style.display = "block";
+         var q1rr = document.getElementById("q1rr");
+         var q2rr = document.getElementById("q2rr");
+         var q3rr = document.getElementById("q3rr");
+         var q4rr = document.getElementById("q4rr");
+         var percentt = document.getElementById("percent");
+         percentt.innerHTML = score;
+         if(q1r === true){
+         q1rr.innerHTML = "Question 1: Correct";
+         }else{
+         q1rr.innerHTML = "Question 1: Wrong";
+         }
+         if(q2r === true){
+         q2rr.innerHTML = "Question 2: Correct";
+         }else{
+         q2rr.innerHTML = "Question 2: Wrong";
+         }
+         if(q3r === true){
+         q3rr.innerHTML = "Question 3: Correct";
+         }else{
+         q3rr.innerHTML = "Question 3: Wrong";
+         }
+         if(q4r === true){
+         q4rr.innerHTML = "Question 4: Correct";
+         }else{
+         q4rr.innerHTML = "Question 4: Wrong";
+         }
+         },1000);
+         },4500);
+             }
+        }
+
+        window.addEventListener("load", function(){
+            loader.style.display = "none";
+            loaded = true;
+        });
+        
+        start.addEventListener("click", function(){
+           if(loaded){
+             start_2.style.display = "none";
+             setTimeout(function(){
+             loadingquiz.style.display = "block";
+             },250);
+             setTimeout(function(){
+             loadingquiz.style.display = "none";
+             loaded2 = true;
+             if(loaded2){
+             quiz.style.display = "block";
+             question = 1;
+             var qa1 = document.getElementById("qa1");
+             var qa2 = document.getElementById("qa2");
+             var qa3 = document.getElementById("qa3");
+             var qa4 = document.getElementById("qa4");
+             qa1.addEventListener("click", function(){
+             correct++;
+             q1r = true;
+             q1.style.display = "none";
+             q2.style.display = "block";
+             qa++;
+             });
+             qa2.addEventListener("click", function(){
+             q1.style.display = "none";
+             q2.style.display = "block";
+             qa++;
+             });
+             qa3.addEventListener("click", function(){
+             q1.style.display = "none";
+             q2.style.display = "block";
+             qa++;
+             });
+             qa4.addEventListener("click", function(){
+             q1.style.display = "none";
+             q2.style.display = "block";
+             qa++;
+             });
+             }
+             var qqa1 = document.getElementById("qqa1");
+             var qqa2 = document.getElementById("qqa2");
+             var qqa3 = document.getElementById("qqa3");
+             qqa1.addEventListener("click", function(){
+             q2.style.display = "none";
+             q3.style.display = "block";
+             qa++;
+             });
+             qqa2.addEventListener("click", function(){
+             correct++;
+             q2r = true;
+             q2.style.display = "none";
+             q3.style.display = "block";
+             qa++;
+             });
+             qqa3.addEventListener("click", function(){
+             q2.style.display = "none";
+             q3.style.display = "block";
+             qa++;
+             });
+             var qqqa1 = document.getElementById("qqqa1");
+             var qqqa2 = document.getElementById("qqqa2");
+             var qqqa3 = document.getElementById("qqqa3");
+             qqqa1.addEventListener("click", function(){
+             q3.style.display = "none";
+             q4.style.display = "block";
+             qa++;
+             });
+             qqqa2.addEventListener("click", function(){
+             q3.style.display = "none";
+             q4.style.display = "block";
+             qa++;
+             });
+             qqqa3.addEventListener("click", function(){
+             correct++;
+             q3r = true;
+             q3.style.display = "none";
+             q4.style.display = "block";
+             qa++;
+             });
+             var qqqqa1 = document.getElementById("qqqqa1");
+             var qqqqa2 = document.getElementById("qqqqa2");
+             var qqqqa3 = document.getElementById("qqqqa3");
+             qqqqa1.addEventListener("click", function(){
+             correct++;
+             q4r = true;
+             q4.style.display = "none";
+             qa++;
+             check();
+             });
+             qqqqa2.addEventListener("click", function(){
+             q4.style.display = "none";
+             qa++;
+             check();
+             });
+             qqqqa3.addEventListener("click", function(){
+             q4.style.display = "none";
+             qa++;
+             check();
+             });
+             },2000);
+             }
+             });  
+    </script>
+</body>
+</html>
